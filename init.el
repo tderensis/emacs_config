@@ -72,9 +72,12 @@
 
 ; Show trailing whitespace
 (setq-default show-trailing-whitespace t)
-(setq whitespace-line-column 80)
-(setq whitespace-style '(face lines-tail))
+(setq whitespace-style '(face trailing tabs))
 (add-hook 'prog-mode-hook 'whitespace-mode)
+
+; Show 80 column line (emacs 27.0 and later)
+(setq-default display-fill-column-indicator-column 80)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
 ; terminal specific options
 (defun my-inhibit-global-linum-mode ()
